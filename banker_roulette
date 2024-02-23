@@ -1,0 +1,13 @@
+import random
+names = names_string.split(", ") 
+# The code above converts the input into an array seperating
+#each name in the input by a comma and space.
+# 🚨 Don't change the code above 👆
+
+
+length_of_list = len(names)
+
+who_will_pay = random.randint(0,length_of_list -1)
+
+
+print (f"{names[who_will_pay]} is going to buy the meal today!")
