@@ -11,7 +11,7 @@ display = []
 # Initialize an empty list to store the display
 display = ["_"] * len(chosen_word) # This is to multiply the length of word by the number of underscore expected
 
-print (len(chosen_word))
+
 # Print the initial display
 print(display) 
 

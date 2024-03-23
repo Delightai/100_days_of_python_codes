@@ -1,33 +1,99 @@
-import random 
-#This me giving the system a random set of data to choose from 
-words = ["SEUN","FUNMI","BOLAJI","BREAD","MUSIC","TEACHER", "ANIBE"]
+import random
 
-chosen_word = random.choice(words).lower() #This changes the chosen word to a lower case letter after the computer has randomly picked a word
-chosen_word_list = list(chosen_word) #This turns each word chosen into a set of data
+#assigning the list of options to chose from into the variable words
+words = ["SEUN", "FUNMI", "BOLAJI", "BREAD", "MUSIC", "TEACHER", "ANIBE"]
 
-display = []  #this is creating an empty list
+#this is assigning the variable chosen_word into the random word chosen by the computer
+chosen_word = random.choice(words).lower()
+chosen_word_list = list(chosen_word) # this converts the chosen word into a list of character 
 
-#length_of_word = 0  #this is to initiate the length of word
-#length_of_word += len(chosen_word) #this is to iterate over the lenght of words and store above accordingly
+display = ["_"] * len(chosen_word) # this multiplies the length of word by the string "_" and save into the variable display
+ 
+print(display)
 
-#print (length_of_word)
+max_attempts = 6  # Maximum number of attempts
+attempts_left = max_attempts  # Initialize attempts left counter
+
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
 
 
-display = ["_"] * len(chosen_word) #this is to multiply the length of word by the number of underscore expected
+while "_" in display and attempts_left > 0:
+    guess = input("Guess an alphabet: ").lower()
 
-print(display) 
-
-while "_" in display: 
-    guess = input("Guess an alphabet\n").lower() #this asks the user for an input and converts it into a lower case letter
-    #print(guess)
-
-    guess_count = {}
-    for char in guess:
-        guess_count[char] = guess_count.get(char, 0) + 1
-    total_guess_count = sum(guess_count.values())
-
-    print (total_guess_count)
+    correct_guess = False
     for i in range(len(chosen_word_list)):
         if guess == chosen_word_list[i]:
             display[i] = guess
-        print("Current state:", ''.join(display))    
+            correct_guess = True
+
+    print("Current state:", ''.join(display))
+    
+    if not correct_guess:
+        attempts_left -= 1
+        print("Incorrect guess. Attempts left:", attempts_left)
+
+if "_" not in display:
+    print("Congratulations! You guessed the word.")
+else:
+    print("Out of attempts. The word was:", chosen_word)
+
+
+print(stages[attempts_left]) 
+
+
+
