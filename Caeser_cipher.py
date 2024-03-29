@@ -1,4 +1,4 @@
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y']
+alphabet = [' ','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',' ','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y']
 
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 
@@ -27,7 +27,8 @@ def decrypt(plain_text, shift_amount):
   print(f"The decoded text is {cipher_text}")
 
 if direction == "encode":
-   encrypt(plain_text=plain, shift_amount=shift) 
+    encrypt(plain_text=plain, shift_amount=shift) 
+elif direction == "decode":
+    decrypt(plain_text=plain, shift_amount=shift)
 else:
-   decrypt(plain_text=plain, shift_amount=shift)
-
+    print("Sorry, I didn't understand if you want me to encode or decode. Please check the spelling and try again.")
