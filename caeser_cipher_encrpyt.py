@@ -1,11 +1,14 @@
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y']
 
+print (alphabet[24])
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 
 
 
 plain = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
+
+shift%=26 
 
 
 def encrypt(plain_text, shift_amount):
