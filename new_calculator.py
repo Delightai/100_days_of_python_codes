@@ -25,31 +25,38 @@ operator_list = {
 from art3 import logo 
 
 print (logo)
-repetition = True
 
+def cal():
 
-first_number = float(input("Put in the first number\n"))
+    from art3 import logo 
 
-for love in operator_list:
-    print(love)
-operator = input('Pick an operator\n')
+    print (logo)
 
-while repetition:
+    first_number = float(input('Please input the first number\n'))
+    for love in operator_list:
+        print (love)
 
-    second_number = float(input("Put in the second number\n"))
+    repetition = True 
 
-    calculation_function = operator_list[operator]
+    while repetition:
+        operator = input('Pick an operator\n')
+        second_number = float(input('Please input the next number\n'))
+        calculation_function = operator_list[operator]
+        answer1 = calculation_function(first_number, second_number)
 
-    answer = calculation_function(first_number, second_number)
+        print(f"{first_number}{operator}{second_number} = {answer1}") 
+        
+        if input(f"Type 'y' to continue with {answer1}, or type 'n' to start calculating all again:, or type 'e' to end the program\n ") == 'y':
+            first_number = answer1
+        elif input(f"Type 'y' to continue with {answer1}, or type 'n' to start calculating all again:, or type 'E' to end the program \n") == 'n' :
+            repetition = False
+            cal()
+        else:
+            repetition = False
+            print("Thank you for using oor calculator app")
+cal()
 
-    print(f"{first_number}{operator}{second_number} = {answer}") 
-
-    if input(f"Type 'y' to continue with {answer}, or type 'n' to exit: ") == 'y':
-        answer == first_number
-     
-    else:
-        repetition = False
-
+ 
 
 
     
